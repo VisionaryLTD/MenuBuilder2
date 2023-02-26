@@ -54,4 +54,8 @@ public extension MBMenu {
     static func cancel(action: @escaping () async -> Void) -> MBMenu {
         .init(systemItem: .cancel, action: action)
     }
+    
+    static var flexSpace: MBMenu {
+        .init(systemItem: .flexibleSpace)
+    }
 }
