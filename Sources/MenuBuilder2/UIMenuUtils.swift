@@ -75,7 +75,6 @@ public extension Array where Element == UIContextualAction {
             
             if let image = menu.image {
                 action.image = image
-                action.title = nil
             }
             
             if let color = menu.color {
