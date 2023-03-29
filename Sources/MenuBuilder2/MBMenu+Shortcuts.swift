@@ -40,11 +40,11 @@ public extension MBMenu {
     }
     
     static func add(action: @escaping () async -> Void) -> MBMenu {
-        .init(symbol: "plus", action: action)
+        .init(symbol: "plus.circle", action: action)
     }
     
     static func add(@MenuBuilder children: () -> [MBMenu]) -> MBMenu {
-        .init(symbol: "plus", children: children)
+        .init(symbol: "plus.circle", children: children)
     }
     
     static func done(action: @escaping () async -> Void) -> MBMenu {
