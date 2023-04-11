@@ -88,7 +88,7 @@ public extension Array where Element == UIContextualAction {
     }
 }
 
-extension MBMenu {
+public extension MBMenu {
     var barButtonItem: UIBarButtonItem {
         if children.isEmpty {
             let action = UIAction { _ in
