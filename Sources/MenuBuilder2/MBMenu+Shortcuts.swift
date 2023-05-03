@@ -58,4 +58,10 @@ public extension MBMenu {
     static var flexSpace: MBMenu {
         .init(systemItem: .flexibleSpace)
     }
+    
+    static func more(@MenuBuilder children: () -> [MBMenu]) -> MBMenu {
+        .init(title: "action_more".loc, children: children)
+        .color(.systemBlue)
+        .image(.init(systemName: "ellipsis.circle"))
+    }
 }
