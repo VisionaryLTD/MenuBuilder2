@@ -70,6 +70,7 @@ public struct MBMenu: MBMenuConvertible, Hashable {
     var atrributes: UIMenuElement.Attributes = []
     var menuOptions: UIMenu.Options = []
     var checked: Bool = false
+    var barButtonStyle: UIBarButtonItem.Style = .done
     #endif
     var isGroup: Bool = false
     var actionWrapper: MBMenu.Action

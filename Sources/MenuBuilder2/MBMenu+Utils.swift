@@ -68,6 +68,12 @@ public extension MBMenu {
         me.subtitle = subtitle
         return me
     }
+    
+    func barButtonItemStyle(_ style: UIBarButtonItem.Style = .done) -> Self {
+        var me = self
+        me.barButtonStyle = style
+        return me
+    }
 }
 #endif
 

@@ -90,6 +90,8 @@ public extension Array where Element == UIContextualAction {
 
 public extension MBMenu {
     var barButtonItem: UIBarButtonItem {
+        let barButtonItem: UIBarButtonItem
+        
         if children.isEmpty {
             let action = UIAction { _ in
                 Task {
@@ -103,16 +105,20 @@ public extension MBMenu {
             
             let title = title == "" ? nil : title
             
-            return .init(title: title, image: image, primaryAction: action)
+            barButtonItem = .init(title: title, image: image, primaryAction: action)
+        } else {
+            let menu = MBMenu.makeUIMenu(children)
+            
+            if let systemItem {
+                barButtonItem = .init(systemItem: systemItem, menu: menu)
+            } else {
+                barButtonItem = .init(title: title, image: image, menu: menu)
+            }
         }
         
-        let menu = MBMenu.makeUIMenu(children)
+        barButtonItem.style = barButtonStyle
         
-        if let systemItem {
-            return .init(systemItem: systemItem, menu: menu)
-        }
-        
-        return .init(title: title, image: image, menu: menu)
+        return barButtonItem
     }
 }
 
