@@ -123,17 +123,35 @@ public extension MBMenu {
 }
 
 public extension UIViewController {
-    func setBarButtonItems(left: Bool = false, toolbar: Bool = false, animated: Bool = true, @MenuBuilder menus: () -> [MBMenu]) {
+    enum AddingType {
+        case appending, prepending, replacing
+    }
+    
+    func setBarButtonItems(left: Bool = false, toolbar: Bool = false, addingType: AddingType = .replacing, @MenuBuilder menus: () -> [MBMenu]) {
         let items = menus().map { $0.barButtonItem }
         
         if toolbar {
             navigationController?.isToolbarHidden = false
-            setToolbarItems(items, animated: animated)
+            setToolbarItems(items, animated: false)
         } else {
             if left {
-                navigationItem.setLeftBarButtonItems(items, animated: animated)
+                switch addingType {
+                case .appending:
+                    navigationItem.leftBarButtonItems?.append(contentsOf: items)
+                case .prepending:
+                    navigationItem.leftBarButtonItems?.insert(contentsOf: items, at: 0)
+                case .replacing:
+                    navigationItem.leftBarButtonItems = items
+                }
             } else {
-                navigationItem.setRightBarButtonItems(items, animated: animated)
+                switch addingType {
+                case .appending:
+                    navigationItem.rightBarButtonItems?.append(contentsOf: items)
+                case .prepending:
+                    navigationItem.rightBarButtonItems?.insert(contentsOf: items, at: 0)
+                case .replacing:
+                    navigationItem.rightBarButtonItems = items
+                }
             }
         }
     }

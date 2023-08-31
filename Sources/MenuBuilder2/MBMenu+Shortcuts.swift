@@ -24,7 +24,7 @@ public extension MBMenu {
     static func edit(action: @escaping () async -> Void) -> MBMenu {
         .init(title: "action_edit".loc, action: action)
         .color(.systemBlue)
-        .image(.init(systemName: "pencil"))
+        .image(.init(systemName: "pencil.circle"))
     }
     
     static func detail(_ title: String? = nil, action: @escaping () async -> Void) -> MBMenu {
