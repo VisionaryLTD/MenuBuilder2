@@ -40,6 +40,7 @@ public struct MBMenu: MBMenuConvertible, Hashable {
         }
     }
     
+    #if canImport(UIKit)
     public init(systemItem: UIBarButtonItem.SystemItem, @MenuBuilder children: () -> [MBMenu]) {
         self.systemItem = systemItem
         self.actionWrapper = .init { true }
@@ -53,6 +54,7 @@ public struct MBMenu: MBMenuConvertible, Hashable {
             return true
         }
     }
+    #endif
     
     public init(isGroup: Bool = true, @MenuBuilder children: () -> [MBMenu]) {
         self.title = ""
@@ -64,8 +66,8 @@ public struct MBMenu: MBMenuConvertible, Hashable {
     var title: String = ""
     var color: PlatformColor?
     var subtitle: String?
-    #if os(iOS)
     var image: PlatformImage?
+    #if os(iOS)
     var systemItem: UIBarButtonItem.SystemItem?
     var atrributes: UIMenuElement.Attributes = []
     var menuOptions: UIMenu.Options = []

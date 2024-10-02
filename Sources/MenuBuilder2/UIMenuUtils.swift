@@ -7,7 +7,6 @@
 
 #if canImport(UIKit)
 import UIKit
-#endif
 
 public extension MBMenu {
     static func makeUIMenu(_ menus: [MBMenu]) -> UIMenu {
@@ -157,3 +156,4 @@ public extension UIViewController {
     }
 }
 
+#endif

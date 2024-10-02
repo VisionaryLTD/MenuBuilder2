@@ -83,6 +83,6 @@ public typealias PlatformColor = UIColor
 extension UIMenuElement.Attributes: Hashable {}
 extension UIMenu.Options: Hashable {}
 #else
-public typealias PlatformImage = NSIMage
+public typealias PlatformImage = NSImage
 public typealias PlatformColor = NSColor
 #endif

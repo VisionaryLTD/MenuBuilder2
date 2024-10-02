@@ -5,6 +5,7 @@
 //  Created by Kai Shao on 2023/1/15.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public extension UICollectionView {
@@ -81,3 +82,4 @@ class EditMenuInteractionDelegate: NSObject, UIEditMenuInteractionDelegate {
         return interaction.menu
     }
 }
+#endif

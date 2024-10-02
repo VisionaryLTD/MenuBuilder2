@@ -4,7 +4,7 @@
 //
 //  Created by Kai Shao on 2023/1/6.
 //
-
+#if canImport(UIKit)
 import Foundation
 
 public extension MBMenu {
@@ -65,3 +65,4 @@ public extension MBMenu {
         .image(.init(systemName: "ellipsis.circle"))
     }
 }
+#endif
